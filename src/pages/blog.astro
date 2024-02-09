@@ -3,29 +3,32 @@ import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import BlogPost from '../components/BlogPost.astro'
 import PostLink from '../components/PostLink.astro'
+import TagsList from '../components/TagsList.astro'
 const allPosts = await getCollection('posts')
 
-const pageTitle = 'My Astro Learning Blog'
+const pageTitle = 'All Post'
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<p>This is where I will post about my journey learning Astro.</p>
-	<ul>
-		{
-			allPosts.map((post) => (
-				<BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
-			))
-		}
-	</ul>
+	<div class='taglist full'>
+		<TagsList />
+	</div>
+	<h1>{pageTitle}</h1>
 	<section class='main feature'>
 		<section class='post-container'>
 			<section class='postgrid postgrid-home'>
 				{allPosts.map((post) => <PostLink post={post} />)}
 			</section>
 		</section>
-		<aside>
-			<h2>Featured Authors</h2>
-			<div>Ashley Stuff</div>
-		</aside>
 	</section>
 </BaseLayout>
+
+<style>
+	.taglist {
+		padding-block: 2rem;
+		background-color: rgb(223, 223, 223);
+	}
+	.taglist :global(.tags) {
+		justify-content: center;
+	}
+</style>

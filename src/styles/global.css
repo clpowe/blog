@@ -2,11 +2,16 @@
 
 :root {
 	--base-animation: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+	--background: rgb(245, 245, 245);
 }
 
 html {
 	font-family: 'Bebas Neue', display;
 	font-family: 'Montserrat', sans-serif;
+}
+
+body {
+	background-color: var(--background);
 }
 
 .content {
@@ -59,7 +64,7 @@ html {
 	}
 }
 
-@container (min-width: 800px) {
+@container (min-width: 980px) {
 	.postgrid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;

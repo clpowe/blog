@@ -6,23 +6,29 @@ const date = new Date(post.data.pubDate).toLocaleDateString('en-US', {
 })
 ---
 
-<figure class='article'>
-	<img src={post.data.image.url} alt={post.data.image.alt} class='image' />
-	<div class='data'>
-		<p>
-			{date}
-		</p>
-		<p>5 min read</p>
-	</div>
-	<h2>{post.data.title}</h2>
-	<p>
-		{post.data.description}
-	</p>
-</figure>
+<a href={`/posts/${post.slug}`} class='article-wrapper'>
+	<figure class='article'>
+		<img src={post.data.image.url} alt={post.data.image.alt} class='image' />
+		<div class='article-content'>
+			<div class='data'>
+				<p>
+					{date}
+				</p>
+				<p>5 min read</p>
+			</div>
+			<h2>
+				{post.data.title}
+			</h2>
+			<p>
+				{post.data.description}
+			</p>
+		</div>
+	</figure>
+</a>
 
 <style is:global>
 	.article {
-		text-align: center;
+		text-align: left;
 
 		h2 {
 			font-size: 1.5rem;
@@ -34,7 +40,6 @@ const date = new Date(post.data.pubDate).toLocaleDateString('en-US', {
 			width: 100%;
 			background-color: rgb(170, 170, 170);
 			aspect-ratio: 14/9;
-			margin-bottom: 1rem;
 		}
 
 		.data {
@@ -43,8 +48,23 @@ const date = new Date(post.data.pubDate).toLocaleDateString('en-US', {
 			gap: 1rem;
 			margin-bottom: 0.25rem;
 		}
+
+		.article-content {
+			padding: 1rem;
+		}
 	}
 
+	.article-wrapper {
+		text-decoration: none;
+		color: black;
+		border-radius: 1rem;
+		overflow: hidden;
+		transition: box-shadow 0.4s ease-in-out;
+	}
+
+	.article-wrapper:hover {
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	}
 	@media (min-width: 780px) {
 		.article {
 			.image {
