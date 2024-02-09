@@ -5,6 +5,7 @@ import PostLink from '../components/PostLink.astro'
 import Author from '../components/Author.astro'
 import { Image } from 'astro:assets'
 import Family from '../images/Ashleyandkids.jpg'
+import Logo from '../images/fivekidslogo.svg'
 
 import TagsList from '../components/TagsList.astro'
 
@@ -14,6 +15,9 @@ const pageTitle = 'Five Kids and Planning'
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+	<!-- <div class='feature'>
+		<Image src={Logo} alt='5 kids and planning' />
+	</div> -->
 	<main class='feature'>
 		<Image
 			src={Family}
