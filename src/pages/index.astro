@@ -1,15 +1,67 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+import { Greeting } from '../components/Greeting.jsx'
+import PostLink from '../components/PostLink.astro'
+import Author from '../components/Author.astro'
+import { Image } from 'astro:assets'
+import Family from '../images/Ashleyandkids.jpg'
+
+const allPosts = await getCollection('posts')
+const pageTitle = 'Five Kids and Planning'
 ---
 
-<html lang='en'>
-	<head>
-		<meta charset='utf-8' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='viewport' content='width=device-width' />
-		<meta name='generator' content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>5 kids and planning</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<Image
+		src={Family}
+		alt='Ashley Madison Justice and Chris Happy on vacation'
+		class='main-image'
+	/>
+	<main class='feature'>
+		<section class='main feature'>
+			<section class='post-container'>
+				<section class='postgrid'>
+					{allPosts.map((post) => <PostLink post={post} />)}
+				</section>
+			</section>
+			<aside>
+				<h2>Featured Authors</h2>
+				<Author />
+			</aside>
+		</section>
+	</main>
+</BaseLayout>
+
+<style>
+	h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		max-width: 65ch;
+		margin-bottom: 1rem;
+	}
+
+	.postgrid :global(.article:first-child) {
+		grid-column: 1/-1;
+	}
+	.main {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+	.main-image {
+		grid-column: full;
+		aspect-ratio: 7/3;
+		object-fit: cover;
+		object-position: 50% 35%;
+	}
+
+	@media (min-width: 780px) {
+		.main {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			gap: 1rem;
+		}
+		.main-image {
+			grid-column: feature;
+		}
+	}
+</style>

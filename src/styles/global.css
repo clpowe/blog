@@ -1,0 +1,68 @@
+@import url(https://fonts.bunny.net/css?family=bebas-neue:400|montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
+
+:root {
+	--base-animation: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+html {
+	font-family: 'Bebas Neue', display;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.content {
+	--gap: clamp(1rem, 6vw, 3rem);
+	--full: minmax(var(--gap), 1fr);
+	--content: min(80ch, 100% - var(--gap) * 2);
+	--popout: minmax(0, 2rem);
+	--feature: minmax(0, 5rem);
+
+	display: grid;
+
+	grid-template-columns:
+		[full-start] var(--full)
+		[feature-start] var(--feature)
+		[popout-start] var(--popout)
+		[content-start] var(--content) [content-end]
+		var(--popout) [popout-end]
+		var(--feature) [feature-end]
+		var(--full) [full-end];
+}
+
+.content > * {
+	grid-column: content;
+}
+.popout {
+	grid-column: popout;
+}
+.feature {
+	grid-column: feature;
+}
+.full {
+	grid-column: full;
+}
+
+.post-container {
+	container-type: inline-size;
+}
+
+.postgrid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+}
+
+@container (min-width: 500px) {
+	.postgrid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+}
+
+@container (min-width: 800px) {
+	.postgrid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 2rem;
+	}
+}

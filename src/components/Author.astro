@@ -1,0 +1,40 @@
+<div class='author'>
+	<div class='image'></div>
+	<div>
+		<p class='name'>Ashley Powe</p>
+		<p class='subtitle'>
+			Join me as I raise my five kids (twins included) and plan.
+		</p>
+	</div>
+</div>
+
+<style>
+	.author {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.75rem;
+		align-items: center;
+
+		.image {
+			height: 64px;
+			width: 64px;
+			border-radius: 9999999px;
+			background-color: rgb(170, 170, 170);
+		}
+
+		.name {
+			font-family: Inter;
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 700;
+		}
+
+		.subtitle {
+			font-size: 12px;
+			font-style: normal;
+			font-weight: 400;
+			text-wrap: pretty;
+			text-wrap: balance;
+		}
+	}
+</style>

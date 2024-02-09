@@ -1,0 +1,36 @@
+---
+import Hamburger from './Hamburger.astro'
+import Navigation from './Navigation.astro'
+import ThemeIcon from './ThemeIcon.astro'
+---
+
+<header>
+	<nav class='content' aria-labelledby='mainmenulabel'>
+		<Navigation />
+	</nav>
+</header>
+
+<style>
+	header {
+		position: relative;
+		z-index: 10;
+	}
+</style>
+
+<script is:inline>
+	const navBtn = document.querySelector('#menu-btn')
+	const nav = document.querySelector('nav')
+	const navLinks = document.querySelector('.nav-links')
+
+	navBtn.addEventListener('click', () => {
+		navLinks.classList.add('activated')
+		const isExpanded = navBtn.getAttribute('aria-expanded') === 'true'
+
+		nav.classList.add('active')
+		navBtn.setAttribute('aria-expanded', !isExpanded)
+
+		setTimeout(() => {
+			navLinks.classList.remove('activated')
+		}, 400)
+	})
+</script>

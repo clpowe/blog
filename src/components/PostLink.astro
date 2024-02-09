@@ -1,0 +1,56 @@
+---
+const { post } = Astro.props
+const date = new Date(post.data.pubDate).toLocaleDateString('en-US', {
+	month: 'short',
+	day: '2-digit'
+})
+---
+
+<figure class='article'>
+	<img src={post.data.image.url} alt={post.data.image.alt} class='image' />
+	<div class='data'>
+		<p>
+			{date}
+		</p>
+		<p>5 min read</p>
+	</div>
+	<h2>{post.data.title}</h2>
+	<p>
+		{post.data.description}
+	</p>
+</figure>
+
+<style is:global>
+	.article {
+		text-align: center;
+
+		h2 {
+			font-size: 1.5rem;
+			font-weight: 700;
+			max-width: 65ch;
+			margin-bottom: 1rem;
+		}
+		.image {
+			width: 100%;
+			background-color: rgb(170, 170, 170);
+			aspect-ratio: 14/9;
+			margin-bottom: 1rem;
+		}
+
+		.data {
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+			margin-bottom: 0.25rem;
+		}
+	}
+
+	@media (min-width: 780px) {
+		.article {
+			.image {
+				width: 100%;
+				background-color: rgb(170, 170, 170);
+			}
+		}
+	}
+</style>

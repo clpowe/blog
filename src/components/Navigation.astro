@@ -1,0 +1,129 @@
+---
+import { Image } from 'astro:assets'
+import FiveKids from '../images/fivekidslogo.svg'
+import NavItem from './NavItem.astro'
+
+const links = [
+	{ link: '/', name: 'Home' },
+	{ link: '/about', name: 'About' },
+	{ link: '/blog', name: 'Blog' }
+]
+---
+
+<div class='nav-container feature'>
+	<a href='/' aria-label='Go to homepage'>
+		<Image src={FiveKids} alt='Five kids and planning' class='logo-link' />
+	</a>
+	<div class='nav-wrapper'>
+		<button
+			class='btn btn--menu'
+			id='menu-btn'
+			aria-expanded='false'
+			aria-controls='menu'
+			aria-label='Open mobile navigation menu'
+		>
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				fill='none'
+				viewBox='0 0 24 24'
+				stroke-width='1.5'
+				stroke='currentColor'
+				width='24'
+			>
+				<path
+					stroke-linecap='round'
+					stroke-linejoin='round'
+					d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'></path>
+			</svg>
+		</button>
+		<ul role='menubar' class='nav-links'>
+			{links.map((link) => <NavItem link={link.link} name={link.name} />)}
+		</ul>
+	</div>
+</div>
+
+<style>
+	.nav-container {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-block: 1rem;
+		background-color: #fff;
+	}
+
+	.logo-link {
+		margin-inline: 0.5rem;
+		width: clamp(6rem, 10vw, 8.5rem);
+		display: grid;
+		place-items: center;
+	}
+
+	.nav-links {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		list-style: none;
+		gap: 1rem;
+		position: absolute;
+		transform: translate3d(0, -110%, 0);
+		z-index: -1;
+		top: 3rem;
+		left: 0;
+		right: 0;
+		background-color: #fff;
+		padding: 1.5rem;
+		text-align: center;
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	}
+
+	.nav-links.activated {
+		transition: transform 0.5s var(--base-animation);
+	}
+
+	.btn {
+		cursor: pointer;
+		background-color: transparent;
+		border: none;
+		display: grid;
+		place-items: center;
+		padding-inline: center;
+		transition: transform 0.3s var(--base-animation);
+	}
+
+	.btn--menu[aria-expanded='true'] {
+		transform: rotate(180deg);
+	}
+
+	.btn--menu[aria-expanded='true'] + .nav-links {
+		transform: translate3d(0, 0, 0);
+	}
+
+	@media (min-width: 768px) {
+		.btn--menu {
+			display: none;
+		}
+
+		.nav-links {
+			position: static;
+			transform: translate3d(0, 0, 0);
+			flex-direction: row;
+			border: 0;
+			z-index: 0;
+			padding: 0;
+			inset: 0;
+			background-color: transparent;
+			box-shadow: none;
+			transition: none;
+		}
+
+		.nav-links.activated {
+			transition: none;
+		}
+
+		li[role='none'],
+		.nav-link {
+			width: initial;
+		}
+	}
+</style>

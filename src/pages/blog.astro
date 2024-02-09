@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import BlogPost from '../components/BlogPost.astro'
+import PostLink from '../components/PostLink.astro'
+const allPosts = await getCollection('posts')
+
+const pageTitle = 'My Astro Learning Blog'
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<p>This is where I will post about my journey learning Astro.</p>
+	<ul>
+		{
+			allPosts.map((post) => (
+				<BlogPost url={`/posts/${post.slug}`} title={post.data.title} />
+			))
+		}
+	</ul>
+	<section class='main feature'>
+		<section class='post-container'>
+			<section class='postgrid postgrid-home'>
+				{allPosts.map((post) => <PostLink post={post} />)}
+			</section>
+		</section>
+		<aside>
+			<h2>Featured Authors</h2>
+			<div>Ashley Stuff</div>
+		</aside>
+	</section>
+</BaseLayout>

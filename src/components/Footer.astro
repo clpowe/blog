@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets'
+import CircleLogo from '../images/CircleLogo.svg'
+---
+
+<style>
+	footer {
+		background-color: antiquewhite;
+		margin-top: auto;
+		padding-block: 1rem;
+		container-type: inline-size;
+
+		.logo {
+			width: clamp(5rem, 8vw, 7.5rem);
+		}
+
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+			font-weight: 600;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		.newsletter {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		nav {
+			margin-left: 0;
+		}
+
+		@container (min-width: 768px) {
+			.wrapper {
+				display: flex;
+				flex-direction: row;
+				gap: 1.5rem;
+			}
+
+			nav {
+				margin-left: 0;
+			}
+		}
+	}
+</style>
+
+<footer class='content'>
+	<div class='wrapper feature'>
+		<div>
+			<Image
+				src={CircleLogo}
+				height='52.72'
+				width='52.15'
+				class='logo'
+				alt='5 kids and planning KP Logo'
+			/>
+		</div>
+
+		<section class='newsletter'>
+			<h2>News Letter</h2>
+			<p>Subscribe to the weekly newsletter to get the best tips and trends.</p>
+			<form action=''>
+				<input type='email' />
+				<button>submit</button>
+			</form>
+			<div>
+				<a href=''>Facebook</a><a href=''>Instagram</a>
+			</div>
+		</section>
+
+		<nav>
+			<h2>Catagories</h2>
+			<ul>
+				<li>
+					<a href=''>Kids</a>
+				</li>
+				<li>
+					<a href=''>Planning</a>
+				</li>
+				<li>
+					<a href=''>Planning</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</footer>
