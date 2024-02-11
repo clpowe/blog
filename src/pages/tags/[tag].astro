@@ -30,7 +30,7 @@ const { posts } = Astro.props
 		<TagsList />
 	</div>
 	<h1>{tag}</h1>
-	<section class='post-container'>
+	<section class='post-container feature'>
 		<section class='postgrid'>
 			{posts.map((post) => <PostLink post={post} />)}
 		</section>

@@ -4,7 +4,7 @@ pubDate: 2024-29-01
 description: 'Praesent ac varius erat, in mattis lacus. Donec blandit orci a massa aliquam, non porttitor urna suscipit.'
 author: 'Ashley Powe'
 image:
-  url: 'https://docs.astro.build/assets/full-logo-light.png'
+  url: 'https://images.unsplash.com/photo-1585775484045-0cafc65dc562?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   alt: 'The full Astro logo.'
 tags: ['family', 'kids', 'planning']
 ---

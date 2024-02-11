@@ -15,15 +15,17 @@ const pageTitle = 'Five Kids and Planning'
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<!-- <div class='feature'>
-		<Image src={Logo} alt='5 kids and planning' />
-	</div> -->
-	<main class='feature'>
-		<Image
-			src={Family}
-			alt='Ashley Madison Justice and Chris Happy on vacation'
-			class='main-image full'
-		/>
+	<div class='title feature'>
+		<h1 class='feature'>
+			Five Kids
+			<span>&</span>
+			Planning
+		</h1>
+		<p class='subtitle'>
+			Join me as I raise my five kids (twins included) and plan
+		</p>
+	</div>
+	<main class='feature flow'>
 		<section class='main feature'>
 			<section class='post-container'>
 				<section class='postgrid'>
@@ -41,6 +43,26 @@ const pageTitle = 'Five Kids and Planning'
 </BaseLayout>
 
 <style>
+	.title {
+		padding-top: 2rem;
+		h1 {
+			font-size: clamp(1rem, 1px + 8vw, 5.6rem);
+			text-align: left;
+			color: var(--text-color-500);
+			line-height: 0.9em;
+			font-weight: 800;
+			text-transform: uppercase;
+		}
+
+		p {
+			max-width: 65ch;
+			margin-top: 0.25em;
+			font-family: 'Imperial', serif;
+			font-size: 1.25rem;
+			color: var(--text-color-300);
+		}
+	}
+
 	h2 {
 		font-size: 1.5rem;
 		font-weight: 700;
@@ -49,17 +71,23 @@ const pageTitle = 'Five Kids and Planning'
 	}
 
 	.postgrid :global(.article-wrapper:first-child) {
+		--align: center;
+
+		border-bottom: 1px solid #e3e3e3;
 		grid-column: 1/-1;
 	}
 	.main {
 		display: grid;
 		grid-template-columns: 1fr;
+		margin-top: 2rem;
 	}
 	.main-image {
 		grid-column: full;
-		aspect-ratio: 7/3;
+
+		aspect-ratio: 9/3;
 		object-fit: cover;
 		object-position: 50% 35%;
+		margin-bottom: 1rem;
 	}
 
 	@media (min-width: 780px) {
@@ -69,7 +97,7 @@ const pageTitle = 'Five Kids and Planning'
 			gap: 1rem;
 		}
 		.main-image {
-			grid-column: feature;
+			grid-column: full;
 		}
 	}
 </style>

@@ -1,23 +1,107 @@
-@import url(https://fonts.bunny.net/css?family=bebas-neue:400|montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
+/* @import url(https://fonts.bunny.net/css?family=bebas-neue:400|montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i); */
+
+@font-face {
+	font-family: 'Cheltenham';
+	src: url('./fonts/cheltenham/cheltenham-normal-300.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'Cheltenham';
+	src: url('./fonts/cheltenham/cheltenham-normal-400.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Cheltenham';
+	src: url('./fonts/cheltenham/cheltenham-normal-500.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Cheltenham';
+	src: url('./fonts/cheltenham/cheltenham-normal-700.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 700;
+}
+@font-face {
+	font-family: 'Cheltenham';
+	src: url('./fonts/cheltenham/cheltenham-normal-800.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 800;
+}
+
+@font-face {
+	font-family: 'Franklin';
+	src: url('./fonts/franklin/franklin-normal-300.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'Franklin';
+	src: url('./fonts/franklin/franklin-normal-500.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Franklin';
+	src: url('./fonts/franklin/franklin-normal-600.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Imperial';
+	src: url('./fonts/imperial/imperial-normal-500.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Imperial';
+	src: url('./fonts/imperial/imperial-normal-600.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 600;
+}
+@font-face {
+	font-family: 'Imperial';
+	src: url('./fonts/imperial/imperial-normal-700.ttf') format('ttf');
+	font-style: normal;
+	font-weight: 700;
+}
 
 :root {
 	--base-animation: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-	--background: rgb(245, 245, 245);
+	--background: hsla(0, 0%, 100%, 1);
+
+	--text-color-200: #ababab;
+	--text-color-300: #727272;
+	--text-color-400: #5a5a5a;
+	--text-color-500: #121212;
 }
 
 html {
-	font-family: 'Bebas Neue', display;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Imperial', serif;
 }
 
 body {
 	background-color: var(--background);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Cheltenham', sans-serif;
+	line-height: 1.15em;
+	text-wrap: balance;
+}
+
 .content {
-	--gap: clamp(1rem, 6vw, 3rem);
+	--gap: clamp(0.5rem, 3vw, 3rem);
 	--full: minmax(var(--gap), 1fr);
-	--content: min(80ch, 100% - var(--gap) * 2);
+	--content: min(100ch, 100% - var(--gap) * 2);
 	--popout: minmax(0, 2rem);
 	--feature: minmax(0, 5rem);
 
@@ -60,14 +144,23 @@ body {
 	.postgrid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
 	}
 }
 
-@container (min-width: 980px) {
+@container (min-width: 800px) {
 	.postgrid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
-		gap: 2rem;
 	}
+}
+
+.subtitle {
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	color: #5a5a5a;
+	letter-spacing: 0.1px;
+	line-height: 1.1875rem;
+	text-wrap: pretty;
+	text-wrap: balance;
 }

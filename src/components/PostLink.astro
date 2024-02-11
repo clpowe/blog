@@ -19,7 +19,7 @@ const date = new Date(post.data.pubDate).toLocaleDateString('en-US', {
 			<h2>
 				{post.data.title}
 			</h2>
-			<p>
+			<p class='subtitle card-text'>
 				{post.data.description}
 			</p>
 		</div>
@@ -28,42 +28,69 @@ const date = new Date(post.data.pubDate).toLocaleDateString('en-US', {
 
 <style is:global>
 	.article {
-		text-align: left;
+		display: var(--grid, flex);
+		grid-template-columns: 1fr;
+		flex-direction: column;
+		gap: 1rem;
+		padding-bottom: 1rem;
 
+		height: 100%;
 		h2 {
 			font-size: 1.5rem;
 			font-weight: 700;
 			max-width: 65ch;
-			margin-bottom: 1rem;
+			color: var(--text-color-500);
 		}
 		.image {
+			padding: ;
+			display: var(--display, block);
 			width: 100%;
 			background-color: rgb(170, 170, 170);
-			aspect-ratio: 14/9;
+			object-fit: cover;
+			aspect-ratio: 384/228;
 		}
 
 		.data {
 			display: flex;
-			justify-content: center;
+			justify-content: var(--align, left);
 			gap: 1rem;
 			margin-bottom: 0.25rem;
+			font-size: 0.625rem;
+			line-height: 1.25rem;
+			letter-spacing: 0.1px;
+			text-transform: uppercase;
+			font-family: 'Franklin', 'Helvetica', sans-serif;
+			color: var(--text-color-300);
 		}
 
 		.article-content {
-			padding: 1rem;
+			padding: var(--padding, 1rem);
+			padding-top: 0;
+			text-align: var(--align, left);
+
+			.card-text {
+				margin-top: 0.5rem;
+				margin-inline: auto;
+				color: var(--text-color-400);
+			}
 		}
 	}
 
 	.article-wrapper {
 		text-decoration: none;
 		color: black;
-		border-radius: 1rem;
+		/* border-radius: 1rem; */
 		overflow: hidden;
 		transition: box-shadow 0.4s ease-in-out;
 	}
 
-	.article-wrapper:hover {
+	/* .article-wrapper:hover {
 		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	} */
+	@media (min-width: 450px) {
+		.article {
+			grid-template-columns: 1fr 2fr;
+		}
 	}
 	@media (min-width: 780px) {
 		.article {
