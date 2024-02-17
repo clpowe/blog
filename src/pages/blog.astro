@@ -10,10 +10,10 @@ const pageTitle = 'All Post'
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+	<h1>{pageTitle}</h1>
 	<div class='taglist full'>
 		<TagsList />
 	</div>
-	<h1>{pageTitle}</h1>
 	<section class='main feature'>
 		<section class='post-container'>
 			<section class='postgrid postgrid-home'>
@@ -26,7 +26,6 @@ const pageTitle = 'All Post'
 <style>
 	.taglist {
 		padding-block: 2rem;
-		background-color: rgb(223, 223, 223);
 	}
 	.taglist :global(.tags) {
 		justify-content: center;

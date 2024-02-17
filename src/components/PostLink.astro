@@ -36,7 +36,7 @@ const date = new Date(post.data.pubDate).toLocaleDateString('en-US', {
 
 		height: 100%;
 		h2 {
-			font-size: 1.5rem;
+			font-size: var(--hsize, 1.5rem);
 			font-weight: 700;
 			max-width: 65ch;
 			color: var(--text-color-500);
@@ -48,6 +48,7 @@ const date = new Date(post.data.pubDate).toLocaleDateString('en-US', {
 			background-color: rgb(170, 170, 170);
 			object-fit: cover;
 			aspect-ratio: 384/228;
+			border-radius: 1rem;
 		}
 
 		.data {

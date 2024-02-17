@@ -26,10 +26,10 @@ const { posts } = Astro.props
 ---
 
 <BaseLayout pageTitle={tag}>
+	<h1>{tag}</h1>
 	<div class='taglist full'>
 		<TagsList />
 	</div>
-	<h1>{tag}</h1>
 	<section class='post-container feature'>
 		<section class='postgrid'>
 			{posts.map((post) => <PostLink post={post} />)}
@@ -40,7 +40,6 @@ const { posts } = Astro.props
 <style>
 	.taglist {
 		padding-block: 2rem;
-		background-color: rgb(223, 223, 223);
 	}
 	.taglist :global(.tags) {
 		justify-content: center;
