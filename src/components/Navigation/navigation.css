@@ -21,8 +21,9 @@ header {
 
 .logo-link {
 	margin-inline: 0.5rem;
-	width: clamp(6rem, 10vw, 8.5rem);
+
 	display: grid;
+	fill: black;
 	place-items: center;
 }
 
