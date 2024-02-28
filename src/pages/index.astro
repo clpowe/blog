@@ -33,10 +33,14 @@ const pageTitle = 'Five Kids and Planning'
 				</section>
 			</section>
 			<aside>
-				<h2>Featured Authors</h2>
-				<Author />
-				<h2>Tags</h2>
-				<TagsList />
+				<div>
+					<h2>Featured Authors</h2>
+					<Author />
+				</div>
+				<div>
+					<h2>Tags</h2>
+					<TagsList />
+				</div>
 			</aside>
 		</section>
 	</main>
@@ -89,6 +93,12 @@ const pageTitle = 'Five Kids and Planning'
 		object-fit: cover;
 		object-position: 50% 35%;
 		margin-bottom: 1rem;
+	}
+
+	aside {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
 	}
 
 	@media (min-width: 780px) {

@@ -15,7 +15,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 		container-type: inline-size;
 
 		.logo {
-			width: clamp(5rem, 8vw, 7.5rem);
+			width: 4rem;
 		}
 
 		.wrapper {
@@ -52,6 +52,11 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 			gap: 2rem;
 		}
 
+		.input {
+			border: 1px solid var(--text-color-500);
+			padding: 0.5rem;
+		}
+
 		@container (min-width: 768px) {
 			.wrapper {
 				display: flex;
@@ -83,14 +88,14 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 			/>
 		</div>
 		<div>
-			<h2>News Letter</h2>
+			<h2>Newsletter</h2>
 			<div class='content'>
 				<section class='newsletter'>
-					<p>
+					<p class='subtitle'>
 						Subscribe to the weekly newsletter to get the best tips and trends.
 					</p>
 					<form action=''>
-						<input type='email' />
+						<input type='email' class='input' />
 						<button>submit</button>
 					</form>
 					<div>
